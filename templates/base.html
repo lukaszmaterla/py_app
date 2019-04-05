@@ -5,8 +5,12 @@
     <title>Coding Examples is doing try django</title>
 </head>
 <body>
+    {% include 'navbar.html'%}
     {% block content %}
 
+    {% endblock %}
+    {% block content_main %}
+        replace me
     {% endblock %}
 </body>
 </html>
