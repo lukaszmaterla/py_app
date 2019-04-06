@@ -2,6 +2,7 @@
 
 {% block content %}
     <h1>About</h1>
+    <h3>{{ my_text|capfirst|upper }}</h3>
     {{request.user.is_login}}
     <p>Welcome from about page</p>
     <p>
