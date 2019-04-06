@@ -8,4 +8,21 @@
         {{ my_text }}, {{ my_number}}
         {{ my_list }}, {{ my_number}}
     </p>
+
+<ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+</ul>
+
+<ul>
+    {% for abc in my_list %}
+        {% if abc == 312 %}
+            <li>{{ forloop.counter }}  - {{ abc|add:100 }}</li>
+        {% elif abc == 'abc' %}
+            <li>This is not the network</li>
+        {% else %}
+            <li>{{ forloop.counter }} - {{ abc }}</li>
+        {% endif %}
+    {% endfor %}
+</ul>
 {% endblock %}
