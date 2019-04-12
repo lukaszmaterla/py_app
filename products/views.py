@@ -36,11 +36,11 @@ def product_update_view(request, id=id):
     return render(request, "products/product_create.html", context)
 
 
-def product_lookup_view(request, pk):
+def product_detail_view(request, id):
     # obj = Product.objects.get(id=pk)
     # obj = get_object_or_404(Product, id=pk)
     try:
-        obj = Product.objects.get(id=pk)
+        obj = Product.objects.get(id=id)
     except Product.DoesNotExist:
         raise Http404
 
@@ -58,16 +58,16 @@ def product_list_view(request):
     return render(request, 'products/product_list.html', context)
 
 
-def product_detail_view(request, id):
-    obj = Product.objects.get(id=id)
-    # context = {
-    #     'title': obj.title,
-    #     'description': obj.description
-    # }
-    context = {
-        'object': obj,
-    }
-    return render(request, 'products/product_detail.html', context)
+# def product_detail_view(request, id):
+#     obj = Product.objects.get(id=id)
+#     # context = {
+#     #     'title': obj.title,
+#     #     'description': obj.description
+#     # }
+#     context = {
+#         'object': obj,
+#     }
+#     return render(request, 'products/product_detail.html', context)
 
 
 def product_delete_view(request, pk):
