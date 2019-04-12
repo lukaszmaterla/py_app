@@ -3,11 +3,13 @@ from .views import (
     CourseView,
 )
 
-app_name = 'blog'
+app_name = 'courses'
 urlpatterns = [
-    path('', ArticleListView.as_view(), name='article-list'),
-    path('create/', ArticleCreateView.as_view(), name='article-create'),
-    path('<int:id>/', ArticleDetailView.as_view(), name='article-detail'),
-    path('<int:id>/update/', ArticleUpdateView.as_view(), name='article-update'),
-    path('<int:id>/delete/', ArticleDeleteView.as_view(), name='article-delete'),
+    path('', CourseView.as_view(), name='courses-list'),
+    # path('', my_fbv, name='courses-list'),
+
+    # path('create/', CourseCreateView.as_view(), name='courses-create'),
+    path('<int:id>/', CourseView.as_view(), name='courses-detail'),
+    # path('<int:id>/update/', CourseUpdateView.as_view(), name='courses-update'),
+    # path('<int:id>/delete/', CourseDeleteView.as_view(), name='courses-delete'),
 ]

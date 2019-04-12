@@ -3,8 +3,8 @@ from django.views import View
 
 
 class CourseView(View):
-    template_name = 'about.html'
+    template_name = 'courses/course_detail.html'
 
-    def get(self, request, *args, **kwargs):
+    def get(self, request, id=None, *args, **kwargs):
         return render(request, self.template_name, {})
 
