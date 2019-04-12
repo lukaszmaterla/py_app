@@ -15,10 +15,28 @@ class ArticleCreateView(CreateView):
     template_name = 'blog/article_create.html'
     form_class = ArticleModelForm
     queryset = Article.objects.all() # <blog>/<modelname>_list.html
+    success_url = '/'
 
     def form_valid(self, form):
         print(form.cleaned_data)
         return super().form_valid(form)
+
+
+class ArticleUpdateView(UpdateView):
+    template_name = 'blog/article_create.html'
+    form_class = ArticleModelForm
+    queryset = Article.objects.all() # <blog>/<modelname>_list.html
+
+    def get_object(self, queryset=None):
+        id_ = self.kwargs.get('id')
+        return get_object_or_404(Article, id=id_)
+
+    def form_valid(self, form):
+        print(form.cleaned_data)
+        return super().form_valid(form)
+
+    # def get_success_url(self):
+    #     return '/'
 
 
 class ArticleListView(ListView):

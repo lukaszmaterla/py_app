@@ -1,4 +1,4 @@
-from django.forms import ModelForm
+from django.forms import ModelForm, Form
 
 from .models import Article
 
@@ -12,5 +12,5 @@ class ArticleModelForm(ModelForm):
             'active',
         ]
 
-    def clean_title(self):
-        pass
+    # def clean_title(self):
+    #     pass
