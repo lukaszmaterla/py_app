@@ -25,7 +25,6 @@ class ArticleCreateView(CreateView):
 class ArticleUpdateView(UpdateView):
     template_name = 'blog/article_create.html'
     form_class = ArticleModelForm
-    queryset = Article.objects.all() # <blog>/<modelname>_list.html
 
     def get_object(self, queryset=None):
         id_ = self.kwargs.get('id')
@@ -45,6 +44,14 @@ class ArticleListView(ListView):
 
 
 class ArticleDetailView(DetailView):
+    # queryset = Article.objects.all() # blog/<modelname>_list.html
+
+    def get_object(self, queryset=None):
+        id_ = self.kwargs.get('id')
+        return get_object_or_404(Article, id=id_)
+
+
+class ArticleDeleteView(DeleteView):
     # queryset = Article.objects.all() # blog/<modelname>_list.html
 
     def get_object(self, queryset=None):
