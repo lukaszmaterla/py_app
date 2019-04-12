@@ -11,6 +11,15 @@ from .models import Article
 from .forms import ArticleModelForm
 
 
+class ArticleCreateView(CreateView):
+    template_name = 'blog/article_create.html'
+    form_class = ArticleModelForm
+    queryset = Article.objects.all() # <blog>/<modelname>_list.html
+
+    def form_valid(self, form):
+        print(form.cleaned_data)
+
+
 class ArticleListView(ListView):
     template_name = 'blog/some.html' # override basic view
     queryset = Article.objects.all() # blog/<modelname>_list.html
@@ -24,7 +33,3 @@ class ArticleDetailView(DetailView):
         return get_object_or_404(Article, id=id_)
 
 
-class ArticleCreateView(CreateView):
-    template_name = 'blog/article_create.html'
-    queryset = Article.objects.all() # blog/<modelname>_list.html
-    form_class = ArticleModelForm

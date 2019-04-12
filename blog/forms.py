@@ -1,12 +1,16 @@
-from django import forms
+from django.forms import ModelForm
+
 from .models import Article
 
 
-class ArticleModelForm(forms.ModelForm):
+class ArticleModelForm(ModelForm):
     class Meta:
         model = Article
         fields = [
             'title',
             'content',
-            'active'
+            'active',
         ]
+
+    def clean_title(self):
+        pass

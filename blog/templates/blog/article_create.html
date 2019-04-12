@@ -3,7 +3,7 @@
 {% block content %}
 <form action="." method="POST">
     {% csrf_token %}
-    {{ from.as_p }}
+    {{ from.as_table }}
     <input type="submit" value="Save">
 </form>
 {% endblock %}
